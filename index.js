@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import router from "./api/user.routes.js";
 
 dotenv.config();
 
@@ -18,6 +19,8 @@ await mongoose
 App.get("/", (req, res) => {
   res.send("HELLOO");
 });
+
+App.use("/users", router);
 
 const port = 5000;
 
